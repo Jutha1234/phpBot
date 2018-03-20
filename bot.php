@@ -6,7 +6,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-$userid = getUserId();
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -68,4 +68,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK test" . $userid;
+echo "OK test" ;
