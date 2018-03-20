@@ -13,6 +13,12 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
+
+			// Get user id
+			$user_id = $event['source']['userId'];
+
+			echo "$user_id";
+
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -21,6 +27,22 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => $text
 			];
+
+
+			// Build message to reply back
+			if (strcmp($text,'get userid') == 0) {
+				$messages = [
+					'type' => 'text',
+					'text' => $user_id
+				];
+			}
+
+			if (strcmp($text,'get content') == 0) {
+				$messages = [
+					'type' => 'text',
+					'text' => $content
+				];
+			}
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
