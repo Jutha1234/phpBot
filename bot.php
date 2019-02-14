@@ -57,6 +57,14 @@ if (!is_null($events['events'])) {
 					'type' => 'text',
 					'text' => $content
 				];
+			}else if(strcmp($text,'zzz') == 0){
+				$messages = [
+					'type' => 'sticker',
+					'text' => $text,
+					'packageId' => '1',
+					'stickerId' => '1'
+				];
+				
 			}else{
 				$messages = [
 					'type' => 'text',
