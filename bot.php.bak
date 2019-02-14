@@ -36,34 +36,33 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-			
-			$msg_send = $text;
+			// Build message to reply back
 			if (strcmp($text,'test') == 0){
 				
-				$msg_send = "Do you want to test";
+				$messages = [
+				'type' => 'text',
+				'text' => 'Do you want to test!!!'
+				];
+
 
 			}
-
 			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => $msg_send
-			];
-
-			// Build message to reply back
-			/*if (strcmp($text,'get userid') == 0) {
+			else if(strcmp($text,'get userid') == 0) {
 				$messages = [
 					'type' => 'text',
 					'text' => $user_id
 				];
-			}
-
-			if (strcmp($text,'get content') == 0) {
+			}else if(strcmp($text,'get content') == 0) {
 				$messages = [
 					'type' => 'text',
 					'text' => $content
 				];
-			}*/
+			}
+			
+			
+
+
+
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
