@@ -18,6 +18,8 @@ if (!is_null($events['events'])) {
 
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+
+			
 			// Get text sent
 			$text = $event['message']['text'];
 
@@ -25,19 +27,31 @@ if (!is_null($events['events'])) {
 			$user_id = $event['source']['userId'];
 
 			
+			#message to send 
+			$msg_send = $text;
+			if ($text=="test"){
+				
+				$msg_send = "·´ÊÍºÍÐäÃ ËÃÍ¨êÐ";
 
-			// Get replyToken
-			$replyToken = $event['replyToken'];
+			}
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => $msg_send
 			];
 
 
+
+			
+			// Get replyToken
+			$replyToken = $event['replyToken'];
+
+			
+
+
 			// Build message to reply back
-			if (strcmp($text,'get userid') == 0) {
+			/*if (strcmp($text,'get userid') == 0) {
 				$messages = [
 					'type' => 'text',
 					'text' => $user_id
@@ -49,7 +63,7 @@ if (!is_null($events['events'])) {
 					'type' => 'text',
 					'text' => $content
 				];
-			}
+			}*/
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
