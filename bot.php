@@ -5,23 +5,7 @@ $access_token = 'xCdh5IflTKFJ9UZCisDTRg0itxVVQhObx8jub3RGM9gItBPdOVil+DYJznFtX3c
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-$string = file_get_contents("/cus.json");
-$json_a = json_decode($string, true);
 
-$jsonIterator = new RecursiveIteratorIterator(
-    new RecursiveArrayIterator(json_decode($json, TRUE)),
-    RecursiveIteratorIterator::SELF_FIRST);
-
-
-//$data = '' ;
-foreach ($jsonIterator as $key => $val) {
-    if(is_array($val)) {
-        echo "$key:\n";
-    } else {
-		//$data = $key  ;
-        echo "$key => $val\n";
-    }
-}
 
 
 
