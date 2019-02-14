@@ -28,18 +28,7 @@ if (!is_null($events['events'])) {
 
 			
 			#message to send 
-			$msg_send = $text;
-			if (strcmp($text,'test') == 0){
-				
-				$msg_send = "·´ÊÍºÍĞäÃ ËÃÍ¨êĞ";
-
-			}
-
-			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => $msg_send
-			];
+			
 
 
 
@@ -47,9 +36,19 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
+		
+			if (strcmp($text,'test') == 0){
+				
+				$messages = [
+				'type' => 'text',
+				'text' => 'Do you want to test!!!'
+				];
+
+
+			}
+
+			// Build message to reply back
 			
-
-
 			// Build message to reply back
 			/*if (strcmp($text,'get userid') == 0) {
 				$messages = [
