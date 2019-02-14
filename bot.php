@@ -29,7 +29,7 @@ if (!is_null($events['events'])) {
 			
 			#message to send 
 			$msg_send = $text;
-			if ($text=="test"){
+			if (strcmp($text,'test') == 0){
 				
 				$msg_send = "∑¥ Õ∫Õ–‰√ À√Õ®Í–";
 
